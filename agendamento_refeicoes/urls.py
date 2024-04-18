@@ -22,4 +22,4 @@ urlpatterns = [
 ]
 
 # Admin Site Config
-admin.sites.AdminSite.site_header = 'Cadastro de Localidades'
+admin.sites.AdminSite.site_header = 'Sistema de Agendamento de Refeições'
