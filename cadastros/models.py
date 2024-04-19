@@ -22,11 +22,11 @@ class Utilizadores(models.Model):
     matricula_utilizador = models.CharField(max_length=20, unique=True, verbose_name='Matrícula')
     nome_utilizador = models.CharField(max_length=50, null=False, default="", verbose_name='Nome')
     email_utilizador = models.EmailField(max_length=254, unique=True, default="", verbose_name='e-mail')
-    localidade_utilizador = models.ForeignKey(Localidades, on_delete=models.CASCADE, verbose_name='Localidade')
+    localidade_utilizador = models.ManyToManyField(Localidades, verbose_name='Localidade')
     refeicao_utilizador = models.ManyToManyField(Refeicao, verbose_name='Refeições')
 
     class Meta:
         verbose_name_plural = 'Utilizadores'
 
     def __str__(self):
-            return f'{self.matricula_utilizador}{self.nome_utilizador}{self.email_utilizador}{self.localidade_utilizador}'
+        return f'{self.matricula_utilizador}{self.nome_utilizador}{self.email_utilizador}'
