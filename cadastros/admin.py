@@ -9,7 +9,7 @@ class RefeicaoAdmin(admin.ModelAdmin):
     list_display = ['refeicao']
 
 class UtilizadoresAdmin(admin.ModelAdmin):
-    list_display = ['matricula_utilizador', 'nome_utilizador', 'email_utilizador', 'localidade_utilizador', 'refeicao_utilizador']
+    list_display = ['matricula_utilizador', 'nome_utilizador', 'email_utilizador', 'localidade_utilizador']
 
 admin.site.register(Localidades, LocalidadesAdmin)
 admin.site.register(Refeicao, RefeicaoAdmin)
