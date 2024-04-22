@@ -10,7 +10,7 @@ class Localidades(models.Model):
             return f'{self.localidade}'
 
 class Refeicao(models.Model):
-    refeicao = models.CharField(max_length=100, default="", verbose_name='Refeição')    
+    refeicao = models.CharField(max_length=100, default="", verbose_name='Refeição') 
 
     class Meta:
         verbose_name_plural = 'Refeição'
@@ -24,9 +24,10 @@ class Utilizadores(models.Model):
     email_utilizador = models.EmailField(max_length=254, unique=True, default="", verbose_name='e-mail')
     localidade_utilizador = models.ManyToManyField(Localidades, verbose_name='Localidade')
     refeicao_utilizador = models.ManyToManyField(Refeicao, verbose_name='Refeições')
-
+    
     class Meta:
-        verbose_name_plural = 'Utilizadores'
+        verbose_name_plural = 'Utilizadores'   
 
     def __str__(self):
-        return f'{self.matricula_utilizador}{self.nome_utilizador}{self.email_utilizador}'
+        return self.matricula_utilizador
+        #return f'{self.matricula_utilizador}{self.nome_utilizador}{self.email_utilizador}'
