@@ -17,13 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from cadastros.views import LocalidadesListView
+from cadastros.views import LocalidadesListView, LocalidadesCreateView, LocalidadesUpdateView, LocalidadesDeleteView
 #FBV - Function Based View
 # from cadastros.views import localidade_list
 
 urlpatterns = [    
     path('admin/', admin.site.urls),
-    path('', LocalidadesListView.as_view()),
+    path('', LocalidadesListView.as_view(), name="localidades_list"),
+    path('create', LocalidadesCreateView.as_view(), name="localidades_create"),
+    path('update/<int:pk>', LocalidadesUpdateView.as_view(), name="localidades_update"),
+    path('delete/<int:pk>', LocalidadesDeleteView.as_view(), name="localidades_delete"),
+    
     #FBV - Function Based View
     # path('', localidade_list)
 ]

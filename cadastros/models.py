@@ -5,6 +5,7 @@ class Localidades(models.Model):
 
     class Meta:
         verbose_name_plural = 'Localidades'
+        ordering = ["localidade"]
 
     def __str__(self):
             return f'{self.localidade}'

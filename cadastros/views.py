@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from .models import Localidades
 
@@ -11,3 +12,17 @@ from .models import Localidades
 #CBV - Class Based Views
 class LocalidadesListView(ListView):
     model = Localidades
+
+class LocalidadesCreateView(CreateView):
+    model = Localidades
+    fields = ["localidade"]
+    success_url = reverse_lazy("localidades_list")
+
+class LocalidadesUpdateView(UpdateView):
+    model = Localidades
+    fields = ["localidade"]
+    success_url = reverse_lazy("localidades_list")
+
+class LocalidadesDeleteView(DeleteView):
+    model = Localidades
+    success_url = reverse_lazy("localidades_list")

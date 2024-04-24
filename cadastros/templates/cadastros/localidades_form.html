@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% comment %} {% block page_title %}
+   {% if localidade.pk %}
+        Editar Localidade
+    {% elif localidades_update.pk %}
+        Teste
+    {% else %}
+        Nova Localidade
+    {% endif %}
+{% endblock page_title %} {% endcomment %}
+
+{% block content %}
+    {% if localidade.pk %}
+        <h1>Teste Criação</h1>
+    {% else %}
+        <h1>Teste edição</h1>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock content %}
+
+
+
+
+
+      
