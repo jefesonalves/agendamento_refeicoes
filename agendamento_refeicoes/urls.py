@@ -15,13 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
-from cadastros.views import home
+from cadastros.views import LocalidadesListView
+#FBV - Function Based View
+# from cadastros.views import localidade_list
 
 urlpatterns = [    
     path('admin/', admin.site.urls),
-    path('', home)
+    path('', LocalidadesListView.as_view()),
+    #FBV - Function Based View
+    # path('', localidade_list)
 ]
 
 # Admin Site Config
